@@ -24,12 +24,21 @@ class NinjaCard extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Text(
-                'NAME:',
-              style: TextStyle(
-                color: Colors.white,
-                letterSpacing: 2.0,
-              ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Icon(
+                    Icons.face
+                ),
+                SizedBox( width: 2.0,),
+                Text(
+                    'NAME:',
+                  style: TextStyle(
+                    color: Colors.white,
+                    letterSpacing: 2.0,
+                  ),
+                ),
+              ],
             ),
             SizedBox(
               height: 5.0,
@@ -44,12 +53,21 @@ class NinjaCard extends StatelessWidget {
               ),
             ),
             SizedBox(height: 30.0,),
-            Text(
-              'JOB DESCRIPTION:',
-              style: TextStyle(
-                color: Colors.white,
-                letterSpacing: 2.0,
-              ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center ,
+              children: [
+                Icon(
+                    Icons.work
+                ),
+                SizedBox(width: 5.0,),
+                Text(
+                  'JOB DESCRIPTION:',
+                  style: TextStyle(
+                    color: Colors.white,
+                    letterSpacing: 2.0,
+                  ),
+                ),
+              ],
             ),
             SizedBox(
               height: 5.0,
