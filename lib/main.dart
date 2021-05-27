@@ -7,15 +7,32 @@ void main() {
   ));
 }
 
-class NinjaCard extends StatelessWidget {
+class NinjaCard extends StatefulWidget {
   const NinjaCard({Key key}) : super(key: key);
+
+  @override
+  _NinjaCardState createState() => _NinjaCardState();
+}
+
+class _NinjaCardState extends State<NinjaCard> {
+
+  int companyID = 0;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        onPressed: (){
+          setState(() {
+            companyID += 1;
+          });
+        },
+      child: Icon(Icons.add),
+        backgroundColor: Colors.lightBlue,
+      ) ,
       backgroundColor: Colors.blue[900],
       appBar: AppBar(
-        title: Text('Ninja ID card'),
+        title: Text('Company ID card'),
         centerTitle: true,
         backgroundColor: Colors.blue[700],
         elevation: 0.0,
@@ -31,9 +48,37 @@ class NinjaCard extends StatelessWidget {
             ),
             SizedBox(height: 10.0,),
             Divider(
-              height: 60.0,
+              height: 40.0,
               color: Colors.white,
             ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Icon(Icons.confirmation_number_rounded,  color: Colors.white54,),
+                SizedBox(
+                  width: 2.0,
+                ),
+                Text(
+                  'ID Number:',
+                  style: TextStyle(
+                    color: Colors.white,
+                    letterSpacing: 2.0,
+                  ),
+                ),
+              ],
+            ),
+            SizedBox(
+              height: 5.0,
+            ),
+            Text(
+              '$companyID',
+              style: TextStyle(
+                  color: Colors.white54,
+                  letterSpacing: 2.0,
+                  fontSize: 22.0,
+                  fontWeight: FontWeight.bold),
+            ),
+            SizedBox(height: 20.0,),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -155,6 +200,16 @@ class NinjaCard extends StatelessWidget {
                   letterSpacing: 2.0,
                   fontSize: 22.0,
                   fontWeight: FontWeight.bold),
+            ),
+            SizedBox(height: 20.0,),
+            ElevatedButton(onPressed: () {
+              setState(() {
+                companyID = 0;
+              });
+            },
+                child: Text (
+                    "reset ID"
+                ),
             ),
           ],
         ),
